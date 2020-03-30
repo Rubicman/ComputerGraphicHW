@@ -1,4 +1,4 @@
 photos
 *.zip
-cmake*
+cmake-build*
 .idea
