@@ -4,16 +4,16 @@
 
 class GammaCorrection {
 private:
-    long double gamma;
+    double gamma;
 
-    int sRGB(int oldBrightness, int newBrightness, long double proportion);
+    int sRGB(int oldBrightness, int newBrightness, double proportion);
 
-    int exponential(int oldBrightness, int newBrightness, long double proportion);
+    int exponential(int oldBrightness, int newBrightness, double proportion);
 
 public:
-    GammaCorrection(long double gamma = -1.0);
+    GammaCorrection(double gamma = -1.0);
 
-    int getNewBrightness(int oldBrightness, int newBrightness, long double proportion);
+    int getNewBrightness(int oldBrightness, int newBrightness, double proportion);
 };
 
 

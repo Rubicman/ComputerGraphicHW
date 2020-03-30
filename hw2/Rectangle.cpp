@@ -5,14 +5,14 @@
 #define x first
 #define y second
 
-Rectangle::Rectangle(long double x1, long double y1, long double x2, long double y2, long double thickness) : thickness(
+Rectangle::Rectangle(double x1, double y1, double x2, double y2, double thickness) : thickness(
         thickness) {
     if (x1 == x2 && y1 == y2) {
         return;
     }
     Line line = Line(std::make_pair(x1, y1), std::make_pair(x2, y2));
     Line::Point vector = line.getVector();
-    long double borderDistance = std::min(0.5l, thickness / 2);
+    double borderDistance = std::min(0.5, thickness / 2);
 
     points[1] = std::make_pair(x1 - vector.x * borderDistance, y1 - vector.y * borderDistance);
     points[3] = std::make_pair(x2 + vector.x * borderDistance, y2 + vector.y * borderDistance);
@@ -36,7 +36,7 @@ bool Rectangle::isPointInside(Line::Point point) const {
            dEqual(sides[1].distanceToPoint(point) + sides[3].distanceToPoint(point), weight);
 }
 
-long double Rectangle::intersectionArea(Pixel pixel) const {
+double Rectangle::intersectionArea(Pixel pixel) const {
     if (thickness >= 1
         && !isPointInside(pixel.getLeftUp()) && !isPointInside(pixel.getRightUp())
         && !isPointInside(pixel.getLeftDown()) && !isPointInside(pixel.getRightDown())) {
@@ -51,7 +51,7 @@ long double Rectangle::intersectionArea(Pixel pixel) const {
             return 0;
         }
     }
-    long double s = 0;
+    double s = 0;
     bool used[] = {false, false, false, false};
     const Line::Point *borderPoints = pixel.getBorderPoints();
     const Line *borders = pixel.getBorders();
@@ -98,11 +98,11 @@ long double Rectangle::intersectionArea(Pixel pixel) const {
     return 1 - std::abs(s);
 }
 
-long double getArea(const std::vector<Line::Point> &pointList) {
+double getArea(const std::vector<Line::Point> &pointList) {
     if (pointList.empty()) {
         return 0;
     }
-    long double s = 0;
+    double s = 0;
     for (size_t i = 0; i < pointList.size() - 1; i++) {
         s += (pointList[i + 1].x - pointList[i].x) * (pointList[i].y + pointList[i + 1].y) / 2;
     }

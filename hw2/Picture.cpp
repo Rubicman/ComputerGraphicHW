@@ -21,7 +21,7 @@ bool Picture::write(std::ofstream &out) {
     return false;
 }
 
-void Picture::drawLine(long double x1, long double y1, long double x2, long double y2, long double thickness, int brightness, GammaCorrection gammaCorrection) {
+void Picture::drawLine(double x1, double y1, double x2, double y2, double thickness, int brightness, GammaCorrection gammaCorrection) {
     Rectangle rectangle = Rectangle(x1, y1, x2, y2, thickness);
     size_t iMin = std::max(0ll, (long long) (std::min(y1, y2) - thickness / 2 - 2));
     size_t jMin = std::max(0ll, (long long) (std::min(x1, x2) - thickness / 2 - 2));
@@ -29,7 +29,7 @@ void Picture::drawLine(long double x1, long double y1, long double x2, long doub
     size_t jMax = std::min(weight, (size_t) (std::max(x1, x2) + thickness / 2 + 2));
     for (size_t i = iMin; i < iMax; i++) {
         for (size_t j = jMin; j < jMax; j++) {
-            long double s = rectangle.intersectionArea({(long double) j, (long double) i});
+            double s = rectangle.intersectionArea({(double) j, (double) i});
             data[i * weight + j] = gammaCorrection.getNewBrightness(data[i * weight + j], brightness, s);
         }
     }

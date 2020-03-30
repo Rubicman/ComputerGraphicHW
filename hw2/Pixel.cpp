@@ -19,7 +19,7 @@ Line::Point Pixel::getLeftDown() const {
     return borderPoints[3];
 }
 
-Pixel::Pixel(long double x, long double y) {
+Pixel::Pixel(double x, double y) {
     center = std::make_pair(x, y);
     borderPoints[0] = std::make_pair(center.x - 0.5, center.y - 0.5);
     borderPoints[1] = std::make_pair(center.x + 0.5, center.y - 0.5);

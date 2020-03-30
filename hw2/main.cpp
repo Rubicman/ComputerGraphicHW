@@ -6,7 +6,7 @@
 
 typedef unsigned char uchar;
 
-bool getLongDouble(char *str, long double &value) {
+bool getLongDouble(char *str, double &value) {
     try {
         value = std::stold(str);
         return false;
@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
         remove(argv[2]);
         return 1;
     }
-    long double lineThickness, x1, y1, x2, y2, gamma = -1;
+    double lineThickness, x1, y1, x2, y2, gamma = -1;
     if (getLongDouble(argv[4], lineThickness) || lineThickness < 0 ||
         getLongDouble(argv[5], x1) || getLongDouble(argv[6], y1) ||
         getLongDouble(argv[7], x2) || getLongDouble(argv[8], y2)) {

@@ -9,15 +9,15 @@ class Rectangle {
 private:
     Line::Point points[4];
     Line sides[4];
-    long double weight, height, thickness;
+    double weight, height, thickness;
 public:
-    Rectangle(long double x1, long double y1, long double x2, long double y2, long double thickness);
+    Rectangle(double x1, double y1, double x2, double y2, double thickness);
 
     bool isPointInside(Line::Point point) const;
 
-    long double intersectionArea(Pixel pixel) const;
+    double intersectionArea(Pixel pixel) const;
 };
 
-long double getArea(std::vector<Line::Point> const &pointsList);
+double getArea(std::vector<Line::Point> const &pointsList);
 
 #endif //HW2_RECTANGLE_H

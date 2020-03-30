@@ -17,7 +17,7 @@ const Line::Point &Line::getPoint() const {
 Line::Line(Line::Point point1, Line::Point point2)
         : point(std::move(point1)) {
     vector = std::make_pair(point2.x - point1.x, point2.y - point1.y);
-    long double length = sqrtl(this->vector.x * this->vector.x + this->vector.y * this->vector.y);
+    double length = sqrtl(this->vector.x * this->vector.x + this->vector.y * this->vector.y);
     this->vector.x /= length;
     this->vector.y /= length;
 }
@@ -30,8 +30,8 @@ Line::Point intersectionPoint(Line line1, Line line2) {
         std::swap(line1, line2);
     }
     auto vector = line1.vector;
-    long double a = line2.point.x - line1.point.x;
-    long double b = line2.point.y - line1.point.y;
+    double a = line2.point.x - line1.point.x;
+    double b = line2.point.y - line1.point.y;
 
     line2.vector.x /= line1.vector.x;
     a /= line1.vector.x;
@@ -67,7 +67,7 @@ bool operator==(Line const &line1, Line const &line2) {
     return isParallel(line1, line2) && isParallel(line1, line);
 }
 
-long double Line::distanceToPoint(Line::Point point0) const {
+double Line::distanceToPoint(Line::Point point0) const {
     if (isPointOn(point0)) {
         return 0;
     }
@@ -82,15 +82,15 @@ bool Line::isPointOn(Line::Point point0) const {
     return (*this) == Line(point, point0);
 }
 
-long double distanceBetweenPoints(Line::Point point1, Line::Point point2) {
+double distanceBetweenPoints(Line::Point point1, Line::Point point2) {
     return powl((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y), 0.5);
 }
 
-bool dEqual(long double a, long double b) {
-    const long double eps = 1e-12;
+bool dEqual(double a, double b) {
+    const double eps = 1e-12;
     return (a > b - eps && a < b + eps);
 }
 
-int sign(long double a) {
+int sign(double a) {
     return (0 < a) - (a < 0);
 }

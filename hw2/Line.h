@@ -5,7 +5,7 @@
 
 class Line {
 public:
-    typedef std::pair<long double, long double> Point;
+    typedef std::pair<double, double> Point;
 
     const Point &getVector() const;
 
@@ -21,7 +21,7 @@ public:
 
     friend bool operator==(Line const &line1, Line const &line2);
 
-    long double distanceToPoint(Point point0) const;
+    double distanceToPoint(Point point0) const;
 
     bool isPointOn(Point point0) const;
 
@@ -30,10 +30,10 @@ private:
     Point point;
 };
 
-long double distanceBetweenPoints(Line::Point point1, Line::Point point2);
+double distanceBetweenPoints(Line::Point point1, Line::Point point2);
 
-bool dEqual(long double a, long double b);
+bool dEqual(double a, double b);
 
-int sign(long double a);
+int sign(double a);
 
 #endif //HW2_LINE_H

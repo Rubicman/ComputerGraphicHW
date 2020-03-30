@@ -19,7 +19,7 @@ public:
 
     Line::Point getLeftDown() const;
 
-    Pixel(long double x, long double y);
+    Pixel(double x, double y);
 
     const Line &getUpLine() const;
 
