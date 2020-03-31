@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Picture.h"
 
 #define x first
@@ -8,7 +9,7 @@ typedef unsigned char uchar;
 
 bool getLongDouble(char *str, double &value) {
     try {
-        value = std::stold(str);
+        value = std::stod(str);
         return false;
     } catch (std::invalid_argument &e) {
         return true;

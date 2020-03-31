@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <fstream>
+#include <algorithm>
 #include "GammaCorrection.h"
 #include "Rectangle.h"
 
