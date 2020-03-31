@@ -2,5 +2,3 @@ photos
 *.zip
 cmake-build*
 .idea
-*.pdf
-*.docx
