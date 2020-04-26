@@ -21,14 +21,12 @@ int main(int argc, char **argv) {
         std::cerr
                 << "Use linedrawer <input file> <output file> <line brightness> <line thickness> <x1> <y1> <x2> <y2> [gamma]"
                 << std::endl;
-        remove(argv[2]);
         return 1;
     }
 
     std::ifstream in(argv[1], std::ios_base::binary);
     if (!in.is_open()) {
         std::cerr << "Can't open input file" << std::endl;
-        remove(argv[2]);
         return 1;
     }
 
@@ -36,7 +34,6 @@ int main(int argc, char **argv) {
     if (!out.is_open()) {
         std::cerr << "Can't open output file" << std::endl;
         in.close();
-        remove(argv[2]);
         return 1;
     }
 
