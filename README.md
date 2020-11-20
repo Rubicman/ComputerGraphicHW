@@ -2,6 +2,6 @@
 # There are works about:
 Geometry  
 Dither  
-Сolor spaces
-Gamma correction
+Сolor spaces  
+Gamma correction  
 # There are also Russian description on each lab 
